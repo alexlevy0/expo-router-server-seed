@@ -13,20 +13,21 @@ export async function POST(req: ExpoRequest): Promise<ExpoResponse> {
     max_tokens: 100, // You can customize this
   };
 
-  const json = FIXTURES.success;
-  //   const json = await fetch(
-  //     "https://api.openai.com/v1/engines/text-davinci-003/completions",
-  //     {
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Authorization: `Bearer ${process.env.OPENAI_API_KEY ?? ""}`,
-  //       },
-  //       method: "POST",
-  //       body: JSON.stringify(payload),
-  //     }
-  //   ).then((res) => res.json());
+  // const json = FIXTURES.success;
+  
+    const json = await fetch(
+      "https://api.openai.com/v1/engines/text-davinci-003/completions",
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${process.env.OPENAI_API_KEY ?? ""}`,
+        },
+        method: "POST",
+        body: JSON.stringify(payload),
+      }
+    ).then((res) => res.json());
 
-  // console.log(JSON.stringify(json, null, 2));
+  console.log(JSON.stringify(json, null, 2));
   return ExpoResponse.json(json);
 }
 
