@@ -42,7 +42,7 @@ async function respond(res) {
 }
 exports.respond = respond;
 function createHeaders(requestHeaders) {
-	console.log('-->headers :', headers)
+	console.log('-->node_1 :', node_1)
 	const headers = new node_1.Headers();
 	for (const [key, values] of Object.entries(requestHeaders)) {
 		if (values) {
